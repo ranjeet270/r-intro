@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction to Linear | linear_model.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduction to Linear | linear_model.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduction to Linear | linear_model.knit" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path=""><a href="#introduction-to-linear"><i class="fa fa-check"></i><b>1</b> Introduction to Linear<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#example-problem"><i class="fa fa-check"></i><b>1.1</b> Example Problem<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#graphical-analysis"><i class="fa fa-check"></i><b>1.2</b> Graphical Analysis<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#correlation-analysis"><i class="fa fa-check"></i><b>1.3</b> Correlation Analysis<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path=""><a href="#building-the-linear-regression-model"><i class="fa fa-check"></i><b>1.4</b> Building the Linear Regression Model<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path=""><a href="#linear-regression-diagnostics"><i class="fa fa-check"></i><b>1.5</b> Linear Regression Diagnostics<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path=""><a href="#predicting-linear-models"><i class="fa fa-check"></i><b>1.6</b> Predicting Linear Models<span></span></a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<div id="introduction-to-linear" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> Introduction to Linear<a href="#introduction-to-linear" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We have covered the basic concepts about linear regression. Besides these, you need to understand that linear regression is based on certain underlying assumptions that must be taken care especially when working with multiple Xs. Once you are familiar with that, the advanced regression models will show you around the various special cases where a different form of regression would be more suitable.</p>
+<div id="example-problem" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Example Problem<a href="#example-problem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For this analysis, we will use the cars dataset that comes with R by default.</p>
+<p>cars is a standard built-in dataset, that makes it convenient to show linear regression in a simple and easy to understand fashion.</p>
+<p>You can access this dataset by typing in cars in your R console.</p>
+<p>You will find that it consists of 50 observations(rows) and 2 variables (columns) dist and speed. Lets print out the first six observations here.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Cars dataset from the Library. Cars data is an inbuilt dataset in R</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(cars)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cars)  <span class="co"># display the first 6 observations</span></span></code></pre></div>
+<p>The goal here is to establish a mathematical equation for dist as a function of speed, so you can use it to predict dist when only the speed of the car is known.</p>
+<p>So it is desirable to build a linear regression model with the response variable as dist and the predictor as speed.</p>
+<p>Before we begin building the regression model, it is a good practice to analyse and understand the variables.</p>
+<p>The graphical analysis and correlation study below will help with this.</p>
+</div>
+<div id="graphical-analysis" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Graphical Analysis<a href="#graphical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Scatter plot</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.6     ✓ dplyr   1.0.8
+## ✓ tidyr   1.2.0     ✓ stringr 1.4.0
+## ✓ readr   2.1.2     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed,<span class="at">y=</span>dist))<span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="linear_model_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Boxplot</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># boxplot</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">y=</span>speed))<span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Speed&quot;</span>)  <span class="co"># speed</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">y=</span>dist))<span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Distance&quot;</span>) <span class="co"># Distance</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2 </span></code></pre></div>
+<p><img src="linear_model_files/figure-html/unnamed-chunk-4-1.png" width="576" style="display: block; margin: auto;" />
+- Density plot</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Speed&quot;</span>)  <span class="co"># speed</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>dist))<span class="sc">+</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color=</span><span class="st">&quot;darkblue&quot;</span>, <span class="at">fill=</span><span class="st">&quot;lightblue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Distance&quot;</span>) <span class="co"># Distance</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>p3 <span class="sc">+</span> p4 </span></code></pre></div>
+<p><img src="linear_model_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="correlation-analysis" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Correlation Analysis<a href="#correlation-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Correlation analysis studies the strength of relationship between two continuous variables. It involves computing the correlation coefficient between the the two variables.</p>
+<p>So what is correlation? And how is it helpful in linear regression?</p>
+<p>Correlation is a statistical measure that shows the degree of linear dependence between two variables.</p>
+<p>In order to compute correlation, the two variables must occur in pairs, just like what we have here with speed and dist.</p>
+<p>Correlation can take values between -1 to +1.</p>
+<p>If one variables consistently increases with increasing value of the other, then they have a strong positive correlation (value close to +1).</p>
+<p>Similarly, if one consistently decreases when the other increase, they have a strong negative correlation (value close to -1).</p>
+<p>A value closer to 0 suggests a weak relationship between the variables.</p>
+<p>A low correlation (-0.2 &lt; x &lt; 0.2) probably suggests that much of variation of the response variable (Y) is unexplained by the predictor (X). In that case, you should probably look for better explanatory variables.</p>
+<p>If you observe the cars dataset in the R console, for every instance where speed increases, the distance also increases along with it.</p>
+<p>That means, there is a strong positive relationship between them. So, the correlation between them will be closer to 1.</p>
+<p>However, correlation doesn’t imply causation.</p>
+<p>In other words, if two variables have high correlation, it does not mean one variable ’causes’ the value of the other variable to increase.</p>
+<p>Correlation is only an aid to understand the relationship. You can only rely on logic and business reasoning to make that judgement.</p>
+<p>So, how to compute correlation in R?</p>
+<p>Simply use the cor() function with the two numeric variables as arguments.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(cars<span class="sc">$</span>speed, cars<span class="sc">$</span>dist) <span class="co"># calculate correlation between speed and distance</span></span></code></pre></div>
+<pre><code>## [1] 0.8068949</code></pre>
+</div>
+<div id="building-the-linear-regression-model" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Building the Linear Regression Model<a href="#building-the-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now that you have seen the linear relationship pictorially in the scatter plot and through correlation, let’s try building the linear regression model.</p>
+<p>The function used for building linear models is lm().</p>
+<p>The lm() function takes in two main arguments:</p>
+<pre><code>-Formula
+-Data</code></pre>
+<p>The data is typically a data.frame object and the formula is a object of class formula.</p>
+<p>But the most common convention is to write out the formula directly as written below.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>linearMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>cars)  <span class="co"># build linear regression model on full data</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>linearMod</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+<p>By building the linear regression model, we have established the relationship between the predictor
+and response “in” the form of a mathematical formula.</p>
+<p>That is Distance (dist) as a “function for” speed.</p>
+</div>
+<div id="linear-regression-diagnostics" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Linear Regression Diagnostics<a href="#linear-regression-diagnostics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now the linear model is built and you have a formula that you can use to predict the dist value if a corresponding speed is known.</p>
+<p>Is this enough to actually use this model? NO!</p>
+<p>Because, before using a regression model to make predictions, you need to ensure that it is statistically significant. But How do you ensure this?</p>
+<p>Lets begin by printing the summary statistics for linearMod</p>
+<pre><code>## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -29.069  -9.525  -2.272   9.215  43.201 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -17.5791     6.7584  -2.601   0.0123 *  
+## speed         3.9324     0.4155   9.464 1.49e-12 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 15.38 on 48 degrees of freedom
+## Multiple R-squared:  0.6511, Adjusted R-squared:  0.6438 
+## F-statistic: 89.57 on 1 and 48 DF,  p-value: 1.49e-12</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># capture model summary as an object</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>modelSummary <span class="ot">&lt;-</span> <span class="fu">summary</span>(linearMod)  </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(modelSummary)</span></code></pre></div>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(modelSummary)  </span></code></pre></div>
+<pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;     &quot;coefficients&quot; 
+##  [5] &quot;aliased&quot;       &quot;sigma&quot;         &quot;df&quot;            &quot;r.squared&quot;    
+##  [9] &quot;adj.r.squared&quot; &quot;fstatistic&quot;    &quot;cov.unscaled&quot;</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># model coefficients</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>modelCoeffs <span class="ot">&lt;-</span> modelSummary<span class="sc">$</span>coefficients  </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># get std.error for speed  </span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>std.error <span class="ot">&lt;-</span> modelCoeffs[<span class="st">&quot;speed&quot;</span>, <span class="st">&quot;Std. Error&quot;</span>]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>modelSummary<span class="sc">$</span>sigma</span></code></pre></div>
+<pre><code>## [1] 15.37959</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed,<span class="at">y=</span>dist))<span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="linear_model_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x=</span>speed,<span class="at">y=</span>dist))<span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&#39;lm&#39;</span>, <span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="linear_model_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
+</div>
+<div id="predicting-linear-models" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Predicting Linear Models<a href="#predicting-linear-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>So far you have seen how to build a linear regression model using the whole dataset. If you build it that way, there is no way to tell how the model will perform with new data.</p>
+<p>So the preferred practice is to split your dataset into a 80:20 sample (training:test), then, build the model on the 80% sample and then use the model thus built to predict the dependent variable on test data.</p>
+<p>Doing it this way, we will have the model predicted values for the 20% data (test) as well as the actuals (from the original dataset).</p>
+<p>By calculating accuracy measures (like min_max accuracy) and error rates (MAPE or MSE), you can find out the prediction accuracy of the model.</p>
+<p>Now, lets see how to actually do this.</p>
+<div id="step-1-create-the-training-and-test-data" class="section level3 hasAnchor" number="1.6.1">
+<h3><span class="header-section-number">1.6.1</span> Step 1: Create the training and test data<a href="#step-1-create-the-training-and-test-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This can be done using the sample() function. Just make sure you set the seed using set.seed() so the samples can be recreated for future use.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create Training and Test data -</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)  <span class="co"># setting seed to reproduce results of random sampling</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>trainingRowIndex <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(cars), <span class="fl">0.8</span><span class="sc">*</span><span class="fu">nrow</span>(cars))  <span class="co"># row indices for training data</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>trainingData <span class="ot">&lt;-</span> cars[trainingRowIndex, ]  <span class="co"># model training data</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>testData  <span class="ot">&lt;-</span> cars[<span class="sc">-</span>trainingRowIndex, ]   <span class="co"># test data</span></span></code></pre></div>
+</div>
+<div id="step-2-fit-the-model-on-training-data-and-predict-dist-on-test-data" class="section level3 hasAnchor" number="1.6.2">
+<h3><span class="header-section-number">1.6.2</span> Step 2: Fit the model on training data and predict dist on test data<a href="#step-2-fit-the-model-on-training-data-and-predict-dist-on-test-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the model on training data</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>lmMod <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data=</span>trainingData)  <span class="co"># build the model</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>distPred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lmMod, testData)  <span class="co"># predict distance</span></span></code></pre></div>
+</div>
+<div id="step-3-review-diagnostic-measures." class="section level3 hasAnchor" number="1.6.3">
+<h3><span class="header-section-number">1.6.3</span> Step 3: Review diagnostic measures.<a href="#step-3-review-diagnostic-measures." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span> (lmMod)  <span class="co"># model summary</span></span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = dist ~ speed, data = trainingData)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -24.726 -11.242  -2.564  10.436  40.565 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -20.1796     7.8254  -2.579   0.0139 *  
+## speed         4.2582     0.4947   8.608 1.85e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 15.49 on 38 degrees of freedom
+## Multiple R-squared:  0.661,  Adjusted R-squared:  0.6521 
+## F-statistic: 74.11 on 1 and 38 DF,  p-value: 1.848e-10</code></pre>
+<p>From the model summary, the model p value and predictors p value are less than the significance level.</p>
+<p>So you have a statistically significant model.</p>
+<p>Also, the R-Sq and Adj R-Sq are comparative to the original model built on full data.</p>
+</div>
+<div id="step-4-calculate-prediction-accuracy-and-error-rates" class="section level3 hasAnchor" number="1.6.4">
+<h3><span class="header-section-number">1.6.4</span> Step 4: Calculate prediction accuracy and error rates<a href="#step-4-calculate-prediction-accuracy-and-error-rates" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A simple correlation between the actuals and predicted values can be used as a form of accuracy measure.</p>
+<p>A higher correlation accuracy implies that the actuals and predicted values have similar directional movement, i.e. when the actuals values increase the predicted values also increase and vice-versa.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>original <span class="ot">&lt;-</span>  testData<span class="sc">$</span>dist</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> original<span class="sc">-</span>distPred</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">=</span> <span class="fu">mean</span>((d)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>mae <span class="ot">=</span> <span class="fu">mean</span>(<span class="fu">abs</span>(d))</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>rmse <span class="ot">=</span> <span class="fu">sqrt</span>(mse)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>R2 <span class="ot">=</span> <span class="dv">1</span><span class="sc">-</span>(<span class="fu">sum</span>((d)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>((original<span class="sc">-</span><span class="fu">mean</span>(original))<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot; MAE:&quot;</span>, mae, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;MSE:&quot;</span>, mse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;RMSE:&quot;</span>, rmse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;R-squared:&quot;</span>, R2)</span></code></pre></div>
+<pre><code>##  MAE: 12.50694 
+##  MSE: 267.0002 
+##  RMSE: 16.34014 
+##  R-squared: 0.5142005</code></pre>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

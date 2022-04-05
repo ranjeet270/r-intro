@@ -1,12 +1,14 @@
 
 rmd_files: 
-  - introduction.Rmd
+  - index.Rmd
   - starting.Rmd
   - data_frames.Rmd
   - plotting.Rmd
   - summarizing.Rmd
   - next_steps.Rmd
+  - linear_model.Rmd
 
 new_session: yes
 output_dir: "../docs"
 book_filename: "r-intro-2"
+delete_merged_file: true
